@@ -48,9 +48,9 @@ The Excitment Score consists in 2 sub-scores:
 The ReviewScrapper service will iterate through all reviews and score them as Normal, Excited and Overly Excited using the criteria below:
 
 Review Total Score: 
-1~3: Normal
-4~6: Excited
-7>:  Overly Excited
+1-3: Normal
+4-6: Excited
+7> :  Overly Excited
 
 The algorithm will run 2 times first searching for words later for sentences.
 
