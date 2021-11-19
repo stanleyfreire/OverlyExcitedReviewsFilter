@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Stanley Freire\\Documents\\Code\\Pessoal\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\ReviewScrapperAPI.csproj": {}
+    "C:\\Users\\Stanley Freire\\Documents\\Code\\Podium\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\ReviewScrapperAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Stanley Freire\\Documents\\Code\\Pessoal\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\ReviewScrapperAPI.csproj": {
+    "C:\\Users\\Stanley Freire\\Documents\\Code\\Podium\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\ReviewScrapperAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Stanley Freire\\Documents\\Code\\Pessoal\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\ReviewScrapperAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Stanley Freire\\Documents\\Code\\Podium\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\ReviewScrapperAPI.csproj",
         "projectName": "ReviewScrapperAPI",
-        "projectPath": "C:\\Users\\Stanley Freire\\Documents\\Code\\Pessoal\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\ReviewScrapperAPI.csproj",
+        "projectPath": "C:\\Users\\Stanley Freire\\Documents\\Code\\Podium\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\ReviewScrapperAPI.csproj",
         "packagesPath": "C:\\Users\\Stanley Freire\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Stanley Freire\\Documents\\Code\\Pessoal\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\obj\\",
+        "outputPath": "C:\\Users\\Stanley Freire\\Documents\\Code\\Podium\\OverlyExcitedReviewsFilter\\ReviewScrapperAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Stanley Freire\\AppData\\Roaming\\NuGet\\NuGet.Config",
