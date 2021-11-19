@@ -39,13 +39,13 @@ No! That's when the "Excitment Score" comes in play.
 
 ### The "Excitment Score"
 
-The Excitment Score consists in 2 sub-scores:
-    - UserScore
-        - How many reviews the same User published? The same user left a review inside a little time frame for the same dealership? Kinda odd. Each review count as 1 point here. Lower value is better.
-    - WordScore
-        - How excited was his(her) writing? This score depends on how **many** matches were found inside the Review Text and the **weight** of each match. Lower is better.
+The Excitment Score consists in 2 sub-scores:  
+- UserScore
+    - How many reviews the same User published? The same user left a review inside a little time frame for the same dealership? Kinda odd. Each review count as 1 point here. Lower value is better.
+- WordScore
+    - How excited was his(her) writing? This score depends on how **many** matches were found inside the Review Text and the **weight** of each match. Lower is better.  
 
-The ReviewScrapper service will iterate through all reviews and score them as Normal, Excited and Overly Excited using the criteria below:
+The ReviewScrapper service will iterate through all reviews and score them as Normal, Excited and Overly Excited using the criteria below:  
 
 Review Total Score:  
 1-3: Normal  
