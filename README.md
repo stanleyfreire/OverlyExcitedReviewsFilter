@@ -38,7 +38,7 @@ No. That's when the "Excitment Score" comes in play.
 
 ### The "Excitment Score"
 
-The Excitment Score consists in 2 sub-scores:__
+The Excitment Score consists in 2 sub-scores:
     - UserScore
         - How many reviews the same User published? Each review count as 1 point here. Lower value is better.
     - WordScore
