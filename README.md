@@ -33,10 +33,8 @@ It's important to point that this list has a weight too, so for simple adjective
 ~~Why initially?~~\
     The list starts with 1 and 2 as weigths, but after the algorithm finishes it will run an update on the lists that reduces the weight of a word/sentece given how many times it was used on the last run. So for example if the world "wonderful" was used 30 times in all reviews the new weight for this word is now 0.7 (I removed 0.3 points that are 30/100.)\
 
-Does that mean that a review that looks like this:<br\>
-    "I was very well treated inside the dealership and had a wonderful experience!"\
-should be voted down just because it contains the word "wonderful" inside it?\
-No. That's when the "Excitment Score" comes in play.\
+Does that mean that a review that looks like this: "I was very well treated inside the dealership and had a wonderful experience!" should be voted down just because it contains the word "wonderful" inside it?  \
+No. That's when the "Excitment Score" comes in play.
 
 ### The "Excitment Score"
 
