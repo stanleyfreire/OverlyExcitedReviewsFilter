@@ -52,7 +52,7 @@ Review Total Score:
 4-6: Excited  
 7> :  Overly Excited 
 
-The algorithm will run 2 times first searching for words later for sentences. 
+The algorithm will run 2 times: first searching for sentences then searching for words. 
 
 - How the algorithm will know that?
 - Whenever a match occurs inside the review text, I'll add some points to this review, so for example:
