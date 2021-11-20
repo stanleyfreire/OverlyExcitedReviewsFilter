@@ -20,6 +20,7 @@ namespace ReviewScrapperAPI.Controllers
         }
 
         [HttpGet]
+        [Produces("application/json")]
         public async Task<IActionResult> GetReviews([FromQuery] int pages)
         {
             return Ok(await _scrapperService.FetchReviews(pages));
