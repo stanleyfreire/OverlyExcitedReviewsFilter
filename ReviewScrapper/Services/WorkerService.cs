@@ -27,10 +27,11 @@ namespace ReviewScrapper.Services
 
                 foreach (var review in reviews)
                 {
-                    _excitmentService.EvaluateSentences(review);
-                    _excitmentService.EvaluateWords(review);
                     _excitmentService.EvaluateUser(review, reviews);
+                    _excitmentService.EvaluateReviewBody(review);
                 }
+
+                //TODO: put criteria here to return
 
                 var filteredReviews = reviews.Where(t => t.TotalScore >= 5).ToList();
                 return filteredReviews;

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ReviewScrapper.Shared;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,10 +27,8 @@ namespace ReviewScrapper.Models
         //TODO: VAI FICAR TUDO NO MESMO OBJECT QUE O RESPONSE? N SEI.. MAYBE
 
         [JsonIgnore]
-        public List<string> MatchedSentences = new List<string>();
+        public List<ReviewMatch> Matches = new List<ReviewMatch>();
 
-        [JsonIgnore]
-        public List<string> MatchedWords = new List<string>();
 
         [JsonIgnore]
         public double UserScore { get; set; }

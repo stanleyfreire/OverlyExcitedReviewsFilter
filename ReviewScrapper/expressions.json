@@ -1,0 +1,734 @@
+[
+
+    {
+        "definition": "Awesome",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Awesome!",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Awesome!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Awesome!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Best",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Best!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Best!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Best!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Charming",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Charming!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Charming!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Charming!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Cute",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Cute!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Cute!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Cute!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+
+    {
+        "definition": "Delightful",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Delightful!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Delightful!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Delightful!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+
+    {
+        "definition": "Excited",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Excited!",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Excited!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Excited!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Exuberant",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Exuberant!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Exuberant!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Exuberant!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Excellent",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Excellent!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Excellent!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Excellent!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Fancy",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Fancy!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Fancy!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Fancy!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Fantastic",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Fantastic!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Fantastic!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Fantastic!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Fine",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Fine!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Fine!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Fine!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Glamorous",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Glamorous!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Glamorous!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Glamorous!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+
+    {
+        "definition": "Good",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Good!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Good!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Good!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Happy",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Happy!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Happy!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Happy!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Happier",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Happier!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Happier!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Happier!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Helpful",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Helpful!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Helpful!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Helpful!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+
+    {
+        "definition": "Great",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Great!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Great!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Great!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Magnificent",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Magnificent!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Magnificent!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Magnificent!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Nice",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Nice!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Nice!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Nice!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+
+    {
+        "definition": "Pleasant",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Pleasant!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Pleasant!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Pleasant!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+
+    {
+        "definition": "Perfect",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Perfect!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Perfect!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Perfect!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Satisfied",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Satisfied!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Satisfied!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Satisfied!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Splendid",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Splendid!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Splendid!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Splendid!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Super",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Super!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Super!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Super!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+    
+    {
+        "definition": "Superb",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Superb!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Superb!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Superb!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+
+    {
+        "definition": "Wonderful",
+        "type":"word",
+        "rating": "Normal",
+        "score": 1
+    },
+    {
+        "definition": "Wonderful!",
+        "type":"word",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Wonderful!!",
+        "type":"word",
+        "rating": "Excited",
+        "score": 3
+    },
+    {
+        "definition": "Wonderful!!!",
+        "type":"word",
+        "rating": "Overly Excited",
+        "score": 4
+    },
+
+
+
+
+
+
+    {
+        "definition": "Best place in the world",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Best dealership",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Perfect Dealership",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Awesome Experience",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Above and Beyond",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Far and Beyond",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Absolutely the Best",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Will Visit Again",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Should Visit Again",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Must Stop",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Wonderful Experience",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Great Experience",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    },
+    {
+        "definition": "Happily Satisfied",
+        "type":"Sentence",
+        "rating": "Happy",
+        "score": 2
+    } 
+]
