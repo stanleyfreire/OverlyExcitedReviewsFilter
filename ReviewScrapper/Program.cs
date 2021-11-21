@@ -12,43 +12,55 @@ namespace ReviewScrapper
     class Program
     {
         public static IConfigurationRoot _configuration;
-
+        public static ServiceProvider serviceProvider;
         static void Main(string[] args)
         {
             try
             {
-                //setup configuration
-                _configuration = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
-                    .AddJsonFile("appsettings.json", false)
-                    .Build();
+                SetupConfiguration();
+                SetupInjections();
 
-                //setup our DI
-                var serviceProvider = new ServiceCollection()
-                    .AddSingleton<IDataFetcherService, DataFetcherService>()
-                    .AddSingleton<IWorkerService, WorkerService>()
-                    .AddSingleton<IExcitmentService, ExcitmentService>()
-                    .AddSingleton<IFileService, FileService>()
-                    .AddSingleton(_configuration)
-                    .BuildServiceProvider();
-
-                //do the work here
+                //do work here
                 var worker = serviceProvider.GetService<IWorkerService>();
-                var reviews = worker.RunEvaluation(_configuration["API:Address"].ToString().ToString(),
+                var reviews = worker.Run(_configuration["API:Address"].ToString().ToString(),
                     Convert.ToInt32(_configuration["API:Pages"].ToString())).Result;
-                
+
+                Console.WriteLine("### Overly Excited reviews: ###\n\n\n");
 
                 //print overly excited reviews
-                reviews.ForEach(t => Console.WriteLine($"Author: {t.Author} \nDate: {t.Date.ToString()} \nReview: {t.ReviewText}\n\n"));
+                reviews.ForEach(t => Console.WriteLine($"Author: {t.Author} \n" +
+                    $"Date: {t.Date} \n" +
+                    $"Review: {t.ReviewText}\n" +
+                    $"TotalScore: {t.TotalScore}\n\n"));
 
                 Console.ReadLine();
             }
             catch (Exception e)
             {
-                throw e;
+                Console.WriteLine($"Erros Running The Solution: {e}");
+                Console.ReadLine();
             }
-            
+        }
 
+        private static void SetupConfiguration()
+        {
+            //setup configuration
+            _configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory).FullName)
+                .AddJsonFile("appsettings.json", false)
+                .Build();
+        }
+
+        private static void SetupInjections()
+        {
+            //setup DI
+            serviceProvider = new ServiceCollection()
+                .AddSingleton<IDataFetcherService, DataFetcherService>()
+                .AddSingleton<IWorkerService, WorkerService>()
+                .AddSingleton<IEvaluationService, EvaluationService>()
+                .AddSingleton<IFileService, FileService>()
+                .AddSingleton(_configuration)
+                .BuildServiceProvider();
         }
     }
 }

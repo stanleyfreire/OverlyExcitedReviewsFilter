@@ -25,15 +25,17 @@ namespace ReviewScrapper.Services
                 httpClient.DefaultRequestHeaders.Accept.Clear();
                 httpClient.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json")); // only accept json responses
+                httpClient.Timeout = new TimeSpan(0, 5, 0); //5min for longer requests
 
                 HttpResponseMessage response = await httpClient.GetAsync(url);
-                string responseString = response.Content.ReadAsStringAsync().Result;
+                string responseString = await response.Content.ReadAsStringAsync();
 
                 if (response.IsSuccessStatusCode)
                     reviews = JsonConvert.DeserializeObject<List<Review>>(responseString);
+                else
+                    return null;
 
                 return reviews;
-
             }
             catch (Exception e)
             {

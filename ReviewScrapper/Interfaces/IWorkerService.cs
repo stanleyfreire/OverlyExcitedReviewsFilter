@@ -8,6 +8,6 @@ namespace ReviewScrapper.Interfaces
 {
     public interface IWorkerService
     {
-        public Task<List<Review>> RunEvaluation(string endpoint, int pages);
+        public Task<List<Review>> Run(string endpoint, int pages);
     }
 }

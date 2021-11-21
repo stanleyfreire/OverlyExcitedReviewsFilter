@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ReviewScrapper.Interfaces
 {
-    public interface IExcitmentService
+    public interface IEvaluationService
     {
         public void EvaluateUser(Review review, List<Review> reviews);
         public void EvaluateReviewBody(Review review);

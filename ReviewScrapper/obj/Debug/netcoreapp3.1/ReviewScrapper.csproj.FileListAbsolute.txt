@@ -54,3 +54,4 @@ C:\Users\Stanley Freire\Documents\Code\Podium\OverlyExcitedReviewsFilter\ReviewS
 C:\Users\Stanley Freire\Documents\Code\Podium\OverlyExcitedReviewsFilter\ReviewScrapper\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Stanley Freire\Documents\Code\Podium\OverlyExcitedReviewsFilter\ReviewScrapper\bin\Debug\netcoreapp3.1\expressions.json
 C:\Users\Stanley Freire\Documents\Code\Podium\OverlyExcitedReviewsFilter\ReviewScrapper\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Stanley Freire\Documents\Code\Podium\OverlyExcitedReviewsFilter\ReviewScrapper\bin\Debug\netcoreapp3.1\scores.json

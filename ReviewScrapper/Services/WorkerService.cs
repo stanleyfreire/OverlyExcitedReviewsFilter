@@ -1,4 +1,5 @@
-﻿using ReviewScrapper.Interfaces;
+﻿using Microsoft.Extensions.Configuration;
+using ReviewScrapper.Interfaces;
 using ReviewScrapper.Models;
 using System;
 using System.Collections.Generic;
@@ -10,38 +11,40 @@ namespace ReviewScrapper.Services
 {
     public class WorkerService : IWorkerService
     {
+        #region Injection Services
         private readonly IDataFetcherService _dataFetcherService;
-        private readonly IExcitmentService _excitmentService;
+        private readonly IEvaluationService _evaluationService;
+        private readonly IConfigurationRoot _configuration;
+        #endregion
 
-        public WorkerService(IDataFetcherService dataFetcherService, IExcitmentService excitmentService)
+        public WorkerService(IDataFetcherService dataFetcherService, IEvaluationService evaluationService, IConfigurationRoot configuration)
         {
             _dataFetcherService = dataFetcherService;
-            _excitmentService = excitmentService;
+            _evaluationService = evaluationService;
+            _configuration = configuration;
         }
 
-        public async Task<List<Review>> RunEvaluation(string endpoint, int pages)
+        public async Task<List<Review>> Run(string endpoint, int pages)
         {
             try
             {
+                Console.WriteLine("Fetching data from API..");
                 var reviews = await _dataFetcherService.FetchData(endpoint, pages);
+                Console.WriteLine("Data fetched!");
 
                 foreach (var review in reviews)
                 {
-                    _excitmentService.EvaluateUser(review, reviews);
-                    _excitmentService.EvaluateReviewBody(review);
+                    _evaluationService.EvaluateUser(review, reviews);
+                    _evaluationService.EvaluateReviewBody(review);
                 }
 
-                //TODO: put criteria here to return
-
-                var filteredReviews = reviews.Where(t => t.TotalScore >= 5).ToList();
-                return filteredReviews;
+                return reviews.Where(t => t.TotalScore >= Convert.ToDouble(_configuration["ExcitmentThreshold"])).OrderByDescending(t => t.TotalScore).
+                    Take(Convert.ToInt32(_configuration["ResultCount"])).ToList();
             }
             catch (Exception e)
             {
                 throw e;
             }
-            
-
         }
     }
 }
