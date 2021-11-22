@@ -25,13 +25,18 @@ namespace ReviewScrapper
                 var reviews = worker.Run(_configuration["API:Address"].ToString().ToString(),
                     Convert.ToInt32(_configuration["API:Pages"].ToString())).Result;
 
-                Console.WriteLine("### Overly Excited reviews: ###\n\n\n");
+                if (reviews != null)
+                {
+                    Console.WriteLine("### Overly Excited reviews: ###\n\n\n");
 
-                //print overly excited reviews
-                reviews.ForEach(t => Console.WriteLine($"Author: {t.Author} \n" +
-                    $"Date: {t.Date} \n" +
-                    $"Review: {t.ReviewText}\n" +
-                    $"TotalScore: {t.TotalScore}\n\n"));
+                    //print overly excited reviews
+                    reviews.ForEach(t => Console.WriteLine($"Author: {t.Author} \n" +
+                        $"Date: {t.Date} \n" +
+                        $"Review: {t.ReviewText}\n" +
+                        $"TotalScore: {t.TotalScore}\n\n"));
+                }
+                else
+                    Console.WriteLine("API returned null.");
 
                 Console.ReadLine();
             }

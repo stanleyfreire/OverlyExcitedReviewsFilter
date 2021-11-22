@@ -1,0 +1,158 @@
+[
+    {
+        "definition": "Awesome",
+        "type":"Word"
+    },
+    {
+        "definition": "Best",
+        "type":"Word"
+    },
+    {
+        "definition": "Charming",
+        "type":"Word"
+    },
+    {
+        "definition": "Cute",
+        "type":"Word"
+    },
+    {
+        "definition": "Delightful",
+        "type":"Word"
+    },
+    {
+        "definition": "Excited",
+        "type":"Word"
+    },
+    {
+        "definition": "Exuberant",
+        "type":"Word"
+    },
+    {
+        "definition": "Excellent",
+        "type":"Word"
+    },
+    {
+        "definition": "Fancy",
+        "type":"Word"
+    },
+    {
+        "definition": "Fantastic",
+        "type":"Word"
+    },
+    {
+        "definition": "Fine",
+        "type":"Word"
+    },
+    {
+        "definition": "Glamorous",
+        "type":"Word"
+    },
+    {
+        "definition": "Good",
+        "type":"Word"
+    },
+    {
+        "definition": "Happy",
+        "type":"Word"
+    },
+    {
+        "definition": "Happier",
+        "type":"Word"
+    },
+    {
+        "definition": "Helpful",
+        "type":"Word"
+    },
+    {
+        "definition": "Great",
+        "type":"Word"
+    },
+    {
+        "definition": "Magnificent",
+        "type":"Word"
+    },
+    {
+        "definition": "Nice",
+        "type":"Word"
+    },
+    {
+        "definition": "Pleasant",
+        "type":"Word"
+    },
+    {
+        "definition": "Perfect",
+        "type":"Word"
+    },
+    {
+        "definition": "Satisfied",
+        "type":"Word"
+    },
+    {
+        "definition": "Splendid",
+        "type":"Word"
+    },
+    {
+        "definition": "Super",
+        "type":"Word"
+    },
+    {
+        "definition": "Superb",
+        "type":"Word"
+    },
+    {
+        "definition": "Wonderful",
+        "type":"Word"
+    },
+    {
+        "definition": "Best place in the world",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Best dealership",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Perfect Dealership",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Awesome Experience",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Above and Beyond",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Far and Beyond",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Absolutely the Best",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Will Visit Again",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Should Visit Again",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Must Stop",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Wonderful Experience",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Great Experience",
+        "type":"Sentence"
+    },
+    {
+        "definition": "Happily Satisfied",
+        "type":"Sentence"
+    } 
+]

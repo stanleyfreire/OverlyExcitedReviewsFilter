@@ -10,6 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace ReviewScrapper.Services
 {
@@ -21,7 +22,6 @@ namespace ReviewScrapper.Services
         #endregion
 
         #region Properties
-        private string splittedExpressions;
         private string pattern;
         private List<Expression> expressions = new List<Expression>();
         private Score score = new Score();
@@ -44,7 +44,7 @@ namespace ReviewScrapper.Services
 
                 score = JsonConvert.DeserializeObject<Score>(_fileService.GetStringFromFile(scoresFilePath));
 
-                splittedExpressions = String.Join('|', expressions.Select(t => t.Definition));
+                var splittedExpressions = String.Join('|', expressions.OrderBy(t => t.Type == "Sentence").Select(t => t.Definition));
                 pattern = @$"({splittedExpressions}){_configuration["RegexPattern"]}";
 
             }
@@ -89,12 +89,13 @@ namespace ReviewScrapper.Services
         /// </summary>
         /// <param name="review"></param>
         /// <param name="reviews"></param>
-        public void EvaluateUser(Review review, List<Review> reviews)
+        public double EvaluateUser(Review review, List<Review> reviews)
         {
             try
             {
                 var userOccurences = reviews.Where(t => t.Author == review.Author);
                 review.UserScore = userOccurences != null ? userOccurences.Count() : 1;
+                return review.UserScore;
             }
             catch (Exception e)
             {

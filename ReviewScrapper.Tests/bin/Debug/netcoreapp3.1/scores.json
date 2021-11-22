@@ -1,0 +1,35 @@
+{
+    "types": [
+        {
+            "type": "word",
+            "score": 1
+        },
+        {
+            "type": "sentence",
+            "score": 2
+        }
+    ],
+    "special_character": 
+    {
+        "character": "!",
+        "score": 1
+    },
+    "type_ratings": [
+        {
+            "score": 1,
+            "rating": "Normal"
+        },
+        {
+            "score": 2,
+            "rating": "Happy"
+        },
+        {
+            "score": 3,
+            "rating": "Excited"
+        },
+        {
+            "score": 4,
+            "rating": "OverlyExcited"
+        }
+    ]
+}
