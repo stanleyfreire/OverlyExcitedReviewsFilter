@@ -1,93 +1,71 @@
+
 # OverlyExcitedReviewsFilter
+This codes offers a solution for the problem where KGB has been noticing a ressurgence of overly excited reviews being left in a certain dealership in Texas on the website DealerRater.com.
 
-This solution solves the problem where overly excited reviews are being published on DealerRater.com website and they need some way to filter the ones that stand out the most.  
+This piece of software solves the problem using a .NET Core Console Application called **ReviewScrapper** that utilizes Regex and a list of words and sentences to score the reviews's Excitment based of a criteria, backed by a dependency injection architecture in order to modularize the services and get to test the methods in a more separte and easier way.
 
-To achieve the results this solution consist in two main projects:  
-    -   ReviewScrapperAPI - API responsible for fetching data from DealerRater.com  
-    -   ReviewScrapper - Service responsible for filtering reviews given "excitment criteria" (listed below).
+In order to explain how it manages to scrap the reviews from the Internet and how it scores each one of them, I'll split the process in three steps: how I **INPUT** data onto the software, how I **PROCESS** them and how the **OUTPUT** should look like once its completed.
 
-## ReviewScrapperAPI
+## STEPS
+- **INPUT**: 
+	- In order to retrieve data from DealerRater.com the software uses HtmlAgilityPack to scrap the website page.
+	- The website URL looks like this: https://www.dealerrater.com/dealer/McKaig-Chevrolet-Buick-A-Dealer-For-The-People-dealer-reviews-23685/page**1**/?filter=#link
+	- Depending on the number of pages that the user wants to scrap from the website I change the URL to page**1**, page**2** and so forth.
+	- Foreach page there are 10 reviews that I iterate through and create and object off of it.
+	- I gather these informations from the website in order to create a Review object:		Author, Date of Publish, Title, Stars Score and Review Text.
+		
+- **PROCESS - Criteria Explained**: 
+	- The Process starts by removing duplicate reviews using the criteria: Same Author and same Review Text.
+	- After that it starts to gather the Macthes found on the Regex Pattern. The list of sentences and words are inside a .json file named **expressions.json** which is located on the root folder of the application. 
+		> If you need to calibrate the algorithm, you just have to add or remove certain words/sentences from this file and run the program again. Depending on how much you changed the expressions on expressions.json file, you might need to change the score criteria too on the appsettings.json file.
+		
+	- There is another file that calibrates the software called **scores.json**. In this file you give word and sentences a **weight** (referenced here as **Score**), so for example: Words have a score of 1 and Sentences have a score of 2 (Sentences are "heavier" then words in my criteria).
+	- The standard scores.json file states that:
+		-  Word: 1 point
+		- Sentence: 2 points
+		- Any occurence of an Exclamation Mark (!) on the match: 1 point + word/sentence wieght
+		- Each occurence of the same user on the reviews list : 1 point
+		- Word contained inside a sentence previousvly matched: Half their points.
+	- Examples (considering that the user left just one review)
+		> I had a **great** experience 
+		
+		This review would be scored as 1 point. Why? Because **great** is inside the **expressions.json** list and it's a word that count as 1 point on the **scores.json** file.
+		> This is the **best dealership** in town!
 
-This API uses HtmlAgilityPack and System.Net.Http libraries to fetch data from DealerRater.com. 
+		This review would be scored as 2 points. Why? Because **best dealership** is inside the **expressions.json** list and it's a sentence that count as 2 points on the **scores.json** file.
+		
+		>That is **great!!**
 
-// talk about how it works and how it scraps data from the website.  
-// show how to call this API if needed - GET Request  
-// show how the API returns data to the client - GET Response  
-// maybe show Swagger or link it?  
-
-// talk about Unit Tests and what was tested here.  
-
-## ReviewScrapper
-
-This service is responsible for getting data back from ReviewScrapperAPI, filtering the reviews and displaying them on a Console.  
-To filter the reviews the service uses what I like to call an "Excitment Criteria" and a Regex pattern.  
-
-### The "Excitment Criteria"
-
-In order to filter the reviews, the software needs to look for positive adjectives in English - main language that the McKaig Chevrolet Buick dealership customers use - like "Great", "Awesome", "Terrific", "Wonderful" or even sentences like "Best place in the world" that are listed below:
-
-
-    1. Simple adjectives - weight 1:
-    1.1. Awesome, Terrific, Best, Charming, Cute, Delightful, Excited, Exuberant, Excellent, Fancy, Fantastic, Fine, glamorous, Good, Happy, Happier, Helpful, Great, Magnificent, Nice, Pleasant, Perfect, Splendid, Super, Superb, Wonderful.
-    
-    2. Sentences - weigth 2:
-    2.1. Best place in the world, Best dealership, Perfect Dealership, Awesome Experience, Above and Beyond, Absolutely the Best, Will Visit Again, Should Visit Again, Must Stop, Wonderful Experience, Great Experience.
-
-
-Does that mean that a review that looks like this: "I was very well treated inside the dealership and had a wonderful experience!" should be voted down just because it contains the word "wonderful" inside it?  
-No! That's when the "Excitment Score" comes in play.
-
-### The "Excitment Score"
-
-The Excitment Score consists in 2 sub-scores:  
-- UserScore
-    - How many reviews the same User published? The same user left a review inside a little time frame for the same dealership? Kinda odd. Each review count as 1 point here. Lower value is better.
-- WordScore
-    - How excited was his(her) writing? This score depends on how **many** matches were found inside the Review Text and the **weight** of each match. Lower is better.  
-
-The ReviewScrapper service will iterate through all reviews and score them as Normal, Excited and Overly Excited using the criteria below:  
-
-Review Total Score:  
-1-3: Normal  
-4-6: Excited  
-7> :  Overly Excited 
-
-The algorithm will run 2 times: first searching for sentences then searching for words. 
-
-- How the algorithm will know that?
-- Whenever a match occurs inside the review text, I'll add some points to this review, so for example:
-Using the list above, if I have the review text as: "Today I had a **great experience**! So **awesome** to be inside the dealership!" the words score would be 3 (1 word         had a match: "awesome" and 1 sentence had a match too: "great experience"). That count as Normal.
-
-- Now for another review that the text looks like this: "The **perfect dealership** in Texas. **Best place in the world**. **Fantastic**!" the score would be 5. Why 5? Because **perfect dealership** and **Best place in the world** have a weight of 2 but the word **Fantastic** has a weight of 1. Summing it all you got 5. That count as Excited.
-- Note: even though the word Best was found inside the sentence "Best place in the world" I'll only score 2 points for it. Sentences have priority over words.
-
-// maybe? ....  
-I'll save the ocurrences count on each word/sentence for later use. It'll help me decrease the score of some of the most used words.
+		This review would be scored as 3 points. Why? Because **great** count as 1 point and there are **two** occurences of the exclamation mark, meaning that the it adds 2 more points to the score.
+		>I had the **best** day. This is the **best dealership** of Texas.
+		
+		This review would be scored as 2.5 points. Why? Because **best** count as 0.5 point and **best dealership** count as two points. Note that the word score was cut in half because it was contained inside a sentence.
+		
+- **OUTPUT**:
+	- The tiebreak rule:
+		- Order by descending scores: TotalScore then by SentenceScore then by WordScore then by StarScore then by Author (asc).
+	-		This is an examples of the output:
+	-	COLAR IMAGEM AQUI
 
 
 
 
-- Explicar qual problema quero solucionar.
+## Ideas I had along the way
+I thought about using the Azure Text Analytics Cognitive Service in order to evaluate the sentiment of the Review Text but then I wouldn't be able to explain what criteria it was using, just its results. So for the sake of this test I chose to create my own criteria.
+Reference: https://azure.microsoft.com/en-us/services/cognitive-services/text-analytics/
 
-- Explicar como cheguei na solução do problema e explicar os três passos:
-	 (explicar arquitetura com injeção de dependência e pq 
-	 (pra modularizar a aplicação e testar cada método com mais facilidade unitariamente)
-	- INPUT: 
-		Falar do scrapping usando HttlAgilityPack
-	- PROCESS: 
-		*Falar que duplicatas são removidas neste passo
-		*Falar como são processado os reviews.
-		*Falar sobre o arquivo expressions.json e do scores.json
-		*Falar da possibilidade de expandir o código/alterá-lo apenas ao alterar os configs/expressions.
-		*Adicionar Criteria aqui
-		 (Word: 1 ponto | Sentence: 2 pontos | Qualquer Exclamaçao: 1 ponto | Cada recorrência na UserList: 1 ponto | Palavra contida em sentença: Metade da Pontuação )
-	- OUTPUT: 
-		Comentar sobre criterio de desempate aqui
-		Exemplo de output do Console.
+I started this project creating two modules: an API that would scrap the website and return a response with the list os Reviews to the Service and the Service itself (stated in this document), but for the sake of brevity and simplicity I chose to go with the service-only approach.
 
-- Explicar ideias que desisti no meio do caminho, como a API
-- Explicar ideias que tive mas não implementei (como Azure Analytics)
-- Explicar testes unitários.
-	- Interessante dizer que os testes podem ser infinitos.
-	- Inserir lista de testes unitários e breve descrição do que fazem.
-- Explicar como executar em Windows e em MacOS.
+The criteria changed a bunch of times but I went for an easier version of it.
+
+## Unit tests
+- I created some unit tests for this project in order to test some of the algorithm and the functiong of the process itself. 
+- There are 20 unit tests that tests all the 4 services included in my project.
+- Important thing to note: Unit tests can be infinite so I chose to write the ones that stood the most and made sense to me at least for this test, but it doesn't mean (in any way) that these are all the tests that could be run againt this piece of code.
+
+## How to Run
+- Windows
+
+
+- MacOS
+
