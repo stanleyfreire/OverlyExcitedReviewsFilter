@@ -63,9 +63,21 @@ The criteria changed a bunch of times but I went for an easier version of it.
 - There are 20 unit tests that tests all the 4 services included in my project.
 - Important thing to note: Unit tests can be infinite so I chose to write the ones that stood the most and made sense to me at least for this test, but it doesn't mean (in any way) that these are all the tests that could be run againt this piece of code.
 
-## How to Run
+## How to Run Application
 - Windows
-
-
+	- Download and install .NET Core SDK v3.1 from link: https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.415-windows-x64-installer
+	- Clone this package in any folder you prefer.
+	- Open Terminal and from the application root folder go to /OverlyExcitedReviewsFilter/ReviewScrapper/bin/Debug/netcoreapp3.1
+	- On that folder run the command: dotnet ReviewScrapper.dll
+	- The code should run. 
 - MacOS
+	- Download and install .NET Core SDK v3.1 from link: https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.415-macos-x64-installer
+	- Run commands on console:
+	> sudo su
+	> ln -s /usr/local/share/dotnet/x64/dotnet /usr/local/bin/
+	- Clone this package in any folder you prefer.
+	- Open Terminal and from the application root folder go to /OverlyExcitedReviewsFilter/ReviewScrapper/bin/Debug/netcoreapp3.1
+	- On that folder run the command: dotnet ReviewScrapper.dll
+	- The code should run. 
 
+- Unit Tests
