@@ -195,42 +195,6 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void Should_Return_2_One_Happy_Word_Macthed()
-        {
-            //Arrange
-            Review review = CreateBaseReview();
-            review.ReviewText = "I Had a Great! experience";
-
-            _evaluationService.Setup(t => t.EvaluateReviewBody(review));
-
-            //Action
-            evaluationService.EvaluateReviewBody(review);
-
-
-            //Assert
-            Assert.AreEqual(review.TotalScore, 2);
-
-        }
-
-        [TestMethod]
-        public void Should_Return_3_One_Excited_Word_Macthed()
-        {
-            //Arrange
-            Review review = CreateBaseReview();
-            review.ReviewText = "I Had a Great!! experience";
-
-            _evaluationService.Setup(t => t.EvaluateReviewBody(review));
-
-            //Action
-            evaluationService.EvaluateReviewBody(review);
-
-
-            //Assert
-            Assert.AreEqual(review.TotalScore, 3);
-
-        }
-
-        [TestMethod]
         public void Should_Return_4_One_Overly_Excited_Word_Macthed()
         {
             //Arrange
@@ -301,40 +265,6 @@ namespace ReviewScrapper.Tests.Services
 
             //Assert
             Assert.AreEqual(review.TotalScore, 3);
-        }
-
-        [TestMethod]
-        public void Should_Return_4_One_Excited_Sentence_Matched()
-        {
-            //Arrange
-            Review review = CreateBaseReview();
-            review.ReviewText = "This is the Best dealership!!";
-
-            _evaluationService.Setup(t => t.EvaluateReviewBody(review));
-
-            //Action
-            evaluationService.EvaluateReviewBody(review);
-
-
-            //Assert
-            Assert.AreEqual(review.TotalScore, 4);
-        }
-
-        [TestMethod]
-        public void Should_Return_5_One_Overly_Excited_Sentence_Matched()
-        {
-            //Arrange
-            Review review = CreateBaseReview();
-            review.ReviewText = "This is the Best dealership!!!";
-
-            _evaluationService.Setup(t => t.EvaluateReviewBody(review));
-
-            //Action
-            evaluationService.EvaluateReviewBody(review);
-
-
-            //Assert
-            Assert.AreEqual(review.TotalScore, 5);
         }
 
         #endregion 

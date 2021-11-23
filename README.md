@@ -63,3 +63,31 @@ Using the list above, if I have the review text as: "Today I had a **great exper
 
 // maybe? ....  
 I'll save the ocurrences count on each word/sentence for later use. It'll help me decrease the score of some of the most used words.
+
+
+
+
+- Explicar qual problema quero solucionar.
+
+- Explicar como cheguei na solução do problema e explicar os três passos:
+	 (explicar arquitetura com injeção de dependência e pq 
+	 (pra modularizar a aplicação e testar cada método com mais facilidade unitariamente)
+	- INPUT: 
+		Falar do scrapping usando HttlAgilityPack
+	- PROCESS: 
+		*Falar que duplicatas são removidas neste passo
+		*Falar como são processado os reviews.
+		*Falar sobre o arquivo expressions.json e do scores.json
+		*Falar da possibilidade de expandir o código/alterá-lo apenas ao alterar os configs/expressions.
+		*Adicionar Criteria aqui
+		 (Word: 1 ponto | Sentence: 2 pontos | Qualquer Exclamaçao: 1 ponto | Cada recorrência na UserList: 1 ponto | Palavra contida em sentença: Metade da Pontuação )
+	- OUTPUT: 
+		Comentar sobre criterio de desempate aqui
+		Exemplo de output do Console.
+
+- Explicar ideias que desisti no meio do caminho, como a API
+- Explicar ideias que tive mas não implementei (como Azure Analytics)
+- Explicar testes unitários.
+	- Interessante dizer que os testes podem ser infinitos.
+	- Inserir lista de testes unitários e breve descrição do que fazem.
+- Explicar como executar em Windows e em MacOS.
