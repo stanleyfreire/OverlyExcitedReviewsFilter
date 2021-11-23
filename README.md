@@ -1,4 +1,5 @@
 
+
 # OverlyExcitedReviewsFilter
 This codes offers a solution for the problem where KGB has been noticing a ressurgence of overly excited reviews being left in a certain dealership in Texas on the website DealerRater.com.
 
@@ -12,11 +13,11 @@ In order to explain how it manages to scrap the reviews from the Internet and ho
 	- The website URL looks like this: https://www.dealerrater.com/dealer/McKaig-Chevrolet-Buick-A-Dealer-For-The-People-dealer-reviews-23685/page**1**/?filter=#link
 	- Depending on the number of pages that the user wants to scrap from the website I change the URL to page**1**, page**2** and so forth.
 	- Foreach page there are 10 reviews that I iterate through and create and object off of it.
-	- I gather these informations from the website in order to create a Review object:		Author, Date of Publish, Title, Stars Score and Review Text.
+	- I gather these information from the website in order to create a Review object:		Author, Date of Publish, Title, Stars Score and Review Text.
 		
 - **PROCESS - Criteria Explained**: 
 	- The Process starts by removing duplicate reviews using the criteria: Same Author and same Review Text.
-	- After that it starts to gather the Macthes found on the Regex Pattern. The list of sentences and words are inside a .json file named **expressions.json** which is located on the root folder of the application. 
+	- After that it starts to gather the Matches found on the Regex Pattern. The list of sentences and words are inside a .json file named **expressions.json** which is located on the root folder of the application. 
 		> If you need to calibrate the algorithm, you just have to add or remove certain words/sentences from this file and run the program again. Depending on how much you changed the expressions on expressions.json file, you might need to change the score criteria too on the appsettings.json file.
 		
 	- There is another file that calibrates the software called **scores.json**. In this file you give word and sentences a **weight** (referenced here as **Score**), so for example: Words have a score of 1 and Sentences have a score of 2 (Sentences are "heavier" then words in my criteria).
@@ -44,10 +45,8 @@ In order to explain how it manages to scrap the reviews from the Internet and ho
 - **OUTPUT**:
 	- The tiebreak rule:
 		- Order by descending scores: TotalScore then by SentenceScore then by WordScore then by StarScore then by Author (asc).
-	-		This is an examples of the output:
+	-	This is an examples of the output:
 	-	COLAR IMAGEM AQUI
-
-
 
 
 ## Ideas I had along the way
@@ -56,28 +55,50 @@ Reference: https://azure.microsoft.com/en-us/services/cognitive-services/text-an
 
 I started this project creating two modules: an API that would scrap the website and return a response with the list os Reviews to the Service and the Service itself (stated in this document), but for the sake of brevity and simplicity I chose to go with the service-only approach.
 
-The criteria changed a bunch of times but I went for an easier version of it.
+The criteria changed a bunch of times but I stood with an easier version of it.
 
 ## Unit tests
 - I created some unit tests for this project in order to test some of the algorithm and the functiong of the process itself. 
 - There are 20 unit tests that tests all the 4 services included in my project.
-- Important thing to note: Unit tests can be infinite so I chose to write the ones that stood the most and made sense to me at least for this test, but it doesn't mean (in any way) that these are all the tests that could be run againt this piece of code.
+- Tests were made to cover the extent of this exercise and are enough to ensure functional execution, nevertheless, more tests could be created as this software evolves.
 
-## How to Run Application
-- Windows
+## How to Run the Application
+
+
+### Application
+- **Windows**
 	- Download and install .NET Core SDK v3.1 from link: https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.415-windows-x64-installer
 	- Clone this package in any folder you prefer.
-	- Open Terminal and from the application root folder go to /OverlyExcitedReviewsFilter/ReviewScrapper/bin/Debug/netcoreapp3.1
-	- On that folder run the command: dotnet ReviewScrapper.dll
+	- Open Terminal and from the application root folder using *cd* command go to /OverlyExcitedReviewsFilter/ReviewScrapper/bin/Debug/netcoreapp3.1
+	- Inside that folder run the command: dotnet ReviewScrapper.dll
 	- The code should run. 
-- MacOS
+	
+- **MacOS**
 	- Download and install .NET Core SDK v3.1 from link: https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.415-macos-x64-installer
 	- Run commands on console:
 	> sudo su
 	> ln -s /usr/local/share/dotnet/x64/dotnet /usr/local/bin/
+	
 	- Clone this package in any folder you prefer.
-	- Open Terminal and from the application root folder go to /OverlyExcitedReviewsFilter/ReviewScrapper/bin/Debug/netcoreapp3.1
+	- Open Terminal and from the application root folder using *cd* command go to /OverlyExcitedReviewsFilter/ReviewScrapper/bin/Debug/netcoreapp3.1
 	- On that folder run the command: dotnet ReviewScrapper.dll
 	- The code should run. 
 
-- Unit Tests
+### Unit Tests
+- **Windows** 
+	-   Download and install .NET Core SDK v3.1 from link:  https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.415-windows-x64-installer
+	-   Clone this package in any folder you prefer.
+	-   Open Terminal and from the application root folder using  _cd_  command go to 			/OverlyExcitedReviewsFilter/ReviewScrapper.Tests/bin/Debug/netcoreapp3.1
+	-   Inside that folder run the command: dotnet test ReviewScrapper.Tests.dll
+	-   The unit test should run.
+	
+- **MacOS** 
+	- Download and install .NET Core SDK v3.1 from link: https://dotnet.microsoft.com/download/dotnet/thank-you/sdk-3.1.415-macos-x64-installer
+	- Run commands on console:
+	> sudo su
+	> ln -s /usr/local/share/dotnet/x64/dotnet /usr/local/bin/
+	
+	-   Clone this package in any folder you prefer.
+	-   Open Terminal and from the application root folder using  _cd_  command go to 			/OverlyExcitedReviewsFilter/ReviewScrapper.Tests/bin/Debug/netcoreapp3.1
+	-   Inside that folder run the command: dotnet test ReviewScrapper.Tests.dll
+	-   The unit test should run.
