@@ -80,8 +80,8 @@ This review would be scored as 2.5 points. Why? Because **best** count as 0.5 po
 
 - Order by descending scores: TotalScore then by SentenceScore then by WordScore then by StarScore then by Author (asc).
 
-- This is an examples of the output:
-![Output](https://i.ibb.co/Svt0GNZ/image.png)
+- This is an examples of the output:  
+- ![Output](https://i.ibb.co/Svt0GNZ/image.png)
     
 ## Ideas I had along the way
 
