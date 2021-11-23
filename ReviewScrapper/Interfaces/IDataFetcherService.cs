@@ -8,7 +8,7 @@ namespace ReviewScrapper.Interfaces
 {
     public interface IDataFetcherService
     {
-        public Task<List<Review>> FetchData(string endpoint, int pages);
+        public List<Review> FetchData(int pages);
 
     }
 }

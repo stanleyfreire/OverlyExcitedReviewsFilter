@@ -52,13 +52,15 @@ namespace ReviewScrapper.Tests.Services
             {
                 Author = "Stanley",
                 Date = new DateTime(2021, 11, 21),
-                Score = 5,
+                StarScore = 5,
                 Title = "What a great experience!",
             };
         }
 
+        #region Test Users
+
         [TestMethod]
-        public void ShouldCheckIfUserIsInsideListAndReturn2()
+        public void Should_Return_2_If_User_Is_Inside_List()
         {
             //Arrange
             List<Review> reviews = new List<Review>();
@@ -67,7 +69,7 @@ namespace ReviewScrapper.Tests.Services
             {
                 Author = "Stanley",
                 Date = new DateTime(2021, 11, 21),
-                Score = 5,
+                StarScore = 5,
                 Title = "What a great experience!",
                 ReviewText = "Best experience of my life!"
             };
@@ -76,7 +78,7 @@ namespace ReviewScrapper.Tests.Services
             {
                 Author = "Stanley",
                 Date = new DateTime(2021, 11, 19),
-                Score = 5,
+                StarScore = 5,
                 Title = "The Best!",
                 ReviewText = "Best experience of my life!"
             };
@@ -85,7 +87,7 @@ namespace ReviewScrapper.Tests.Services
             {
                 Author = "John",
                 Date = new DateTime(2021, 11, 19),
-                Score = 5,
+                StarScore = 5,
                 Title = "The Best!",
                 ReviewText = "Best experience of my life!"
             };
@@ -106,7 +108,7 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldCheckIfUserIsInsideListAndReturn1()
+        public void Should_Return_1_If_User_Is_Inside_List()
         {
             //Arrange
             List<Review> reviews = new List<Review>();
@@ -115,7 +117,7 @@ namespace ReviewScrapper.Tests.Services
             {
                 Author = "Stanley",
                 Date = new DateTime(2021, 11, 21),
-                Score = 5,
+                StarScore = 5,
                 Title = "What a great experience!",
                 ReviewText = "Best experience of my life!"
             };
@@ -124,7 +126,7 @@ namespace ReviewScrapper.Tests.Services
             {
                 Author = "Jonas",
                 Date = new DateTime(2021, 11, 19),
-                Score = 5,
+                StarScore = 5,
                 Title = "The Best!",
                 ReviewText = "Best experience of my life!"
             };
@@ -133,7 +135,7 @@ namespace ReviewScrapper.Tests.Services
             {
                 Author = "John",
                 Date = new DateTime(2021, 11, 19),
-                Score = 5,
+                StarScore = 5,
                 Title = "The Best!",
                 ReviewText = "Best experience of my life!"
             };
@@ -153,10 +155,12 @@ namespace ReviewScrapper.Tests.Services
 
         }
 
+        #endregion
+
         #region Test Words
 
         [TestMethod]
-        public void ShouldReturn0_NoWords()
+        public void Should_Return_0_No_Words_Macthed()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -174,11 +178,11 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldReturn1_OneNormalWord()
+        public void Should_Return_1_One_Normal_Word_Macthed()
         {
             //Arrange
             Review review = CreateBaseReview();
-            review.ReviewText = "I Had a Great experience";
+            review.ReviewText = "I Had an Exuberant experience";
 
             _evaluationService.Setup(t => t.EvaluateReviewBody(review));
 
@@ -191,7 +195,7 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldReturn2_OneHappyWord()
+        public void Should_Return_2_One_Happy_Word_Macthed()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -209,7 +213,7 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldReturn3_OneExcitedWord()
+        public void Should_Return_3_One_Excited_Word_Macthed()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -227,7 +231,7 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldReturn4_OneOverlyExcitedWord()
+        public void Should_Return_4_One_Overly_Excited_Word_Macthed()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -245,11 +249,11 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldReturn5_OneExtraWord()
+        public void Should_Return_10_One_Extra_Word_Macthed()
         {
             //Arrange
             Review review = CreateBaseReview();
-            review.ReviewText = "I Had a Great!!!! experience";
+            review.ReviewText = "I Had a Great!!!!!!!!! experience";
 
             _evaluationService.Setup(t => t.EvaluateReviewBody(review));
 
@@ -258,7 +262,7 @@ namespace ReviewScrapper.Tests.Services
 
 
             //Assert
-            Assert.AreEqual(review.TotalScore, 5);
+            Assert.AreEqual(review.TotalScore, 10);
 
         }
 
@@ -266,7 +270,7 @@ namespace ReviewScrapper.Tests.Services
 
         #region Test Sentences
         [TestMethod]
-        public void ShouldReturn2_OneNormalSentence()
+        public void Should_Return_2_One_Normal_Sentence_Matched()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -283,7 +287,7 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldReturn3_OneHappySentence()
+        public void Should_Return_3_One_Happy_Sentence_Matched()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -300,7 +304,7 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldReturn4_OneExcitedSentence()
+        public void Should_Return_4_One_Excited_Sentence_Matched()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -317,7 +321,7 @@ namespace ReviewScrapper.Tests.Services
         }
 
         [TestMethod]
-        public void ShouldReturn5_OneOverlyExcitedSentence()
+        public void Should_Return_5_One_Overly_Excited_Sentence_Matched()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -337,7 +341,7 @@ namespace ReviewScrapper.Tests.Services
 
         #region Test Words Contained In Sentence
         [TestMethod]
-        public void ShouldReturn2_5_OneWordContainedInSentence()
+        public void Should_Return_25_One_Word_Contained_In_Sentence()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -353,8 +357,8 @@ namespace ReviewScrapper.Tests.Services
             Assert.AreEqual(review.TotalScore, 2.5);
         }
 
-        [TestMethod] //TODO
-        public void ShouldReturn3_TwoWordsContainedInSentence()
+        [TestMethod]
+        public void Should_Return_3_Two_Words_Contained_In_Sentence()
         {
             //Arrange
             Review review = CreateBaseReview();
@@ -371,5 +375,6 @@ namespace ReviewScrapper.Tests.Services
         }
 
         #endregion
+
     }
 }

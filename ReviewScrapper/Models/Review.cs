@@ -9,37 +9,25 @@ namespace ReviewScrapper.Models
     [Serializable]
     public class Review
     {
-        [JsonProperty("author")]
         public string Author { get; set; }
 
-        [JsonProperty("date")]
         public DateTime Date { get; set; }
 
-        [JsonProperty("score")]
-        public double Score { get; set; }
+        public double StarScore { get; set; }
 
-        [JsonProperty("title")]
         public string Title { get; set; }
 
-        [JsonProperty("reviewText")]
         public string ReviewText { get; set; }
 
-        //TODO: VAI FICAR TUDO NO MESMO OBJECT QUE O RESPONSE? N SEI.. MAYBE
 
-        [JsonIgnore]
-        public List<ReviewMatch> Matches = new List<ReviewMatch>();
+        public List<Expression> Matches = new List<Expression>();
 
-
-        [JsonIgnore]
         public double UserScore { get; set; }
 
-        [JsonIgnore]
         public double SentenceScore { get; set; }
 
-        [JsonIgnore]
         public double WordScore { get; set; }
 
-        [JsonIgnore]
         public double TotalScore
         {
             get { return WordScore + UserScore + SentenceScore; }

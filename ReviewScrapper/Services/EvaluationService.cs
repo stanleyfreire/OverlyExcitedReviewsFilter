@@ -34,17 +34,19 @@ namespace ReviewScrapper.Services
 
             try
             {
-                string expressionsFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                var expressionsFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
                     _configuration["ExpressionsFile"]);
 
-                expressions = JsonConvert.DeserializeObject<List<Expression>>(_fileService.GetStringFromFile(expressionsFilePath));
+                if (!string.IsNullOrEmpty(expressionsFilePath))
+                    expressions = JsonConvert.DeserializeObject<List<Expression>>(_fileService.GetStringFromFile(expressionsFilePath));
 
-                string scoresFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
+                var scoresFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),
                     _configuration["ScoresFile"]);
 
-                score = JsonConvert.DeserializeObject<Score>(_fileService.GetStringFromFile(scoresFilePath));
+                if (!string.IsNullOrEmpty(scoresFilePath))
+                    score = JsonConvert.DeserializeObject<Score>(_fileService.GetStringFromFile(scoresFilePath));
 
-                var splittedExpressions = String.Join('|', expressions.OrderBy(t => t.Type == "Sentence").Select(t => t.Definition));
+                var splittedExpressions = String.Join('|', expressions.OrderBy(t => t.Type == "Word").Select(t => t.Definition));
                 pattern = @$"({splittedExpressions}){_configuration["RegexPattern"]}";
 
             }
@@ -70,12 +72,11 @@ namespace ReviewScrapper.Services
                     // scores type + characters
                     var expression = GetExpressionWithScore(match);
 
-                    // scores expressions and check if words are contained inside sentences.
-                    CheckIfWordIsContainedInAnySentence(review, expression);
-
-                    review.Matches.Add(new ReviewMatch() { Definition = expression.Definition, Type = expression.Type });
-
+                    review.Matches.Add(expression);
                 }
+
+                // calculate scores
+                CalculateScores(review);
 
             }
             catch (Exception e)
@@ -105,22 +106,25 @@ namespace ReviewScrapper.Services
         }
 
         /// <summary>
-        /// Checks if word is contained inside a sentence. If so, their score is cut by half.
+        /// Checks if word is contained inside a sentence. If so, their score is cut by half. Otherwise, just score expressions.
         /// </summary>
         /// <param name="review"></param>
-        /// <param name="expression"></param>
-        private void CheckIfWordIsContainedInAnySentence(Review review, Expression expression)
+        private void CalculateScores(Review review)
         {
             try
             {
-                if (expression.Type == "Word")
+                foreach (var item in review.Matches)
                 {
-                    var sentencesMatch = review.Matches.Where(t => t.Type == "Sentence").ToList().Where(t => t.Definition.Contains(expression.Definition));
+                    if (item.Type == "Word")
+                    {
+                        var sentencesMatch = review.Matches.Where(t => t.Type == "Sentence").ToList().Where(t => t.Definition.Contains(item.Definition));
 
-                    review.WordScore += sentencesMatch.Count() > 1 ? (expression.Score / 2) : expression.Score;
+                        review.WordScore += sentencesMatch.Count() >= 1 ? (item.Score / 2) : item.Score;
+                    }
+                    else
+                        review.SentenceScore += item.Score;
                 }
-                else
-                    review.SentenceScore += expression.Score;
+                
             }
             catch (Exception e)
             {

@@ -6,6 +6,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using System.Collections;
 
 namespace ReviewScrapper
 {
@@ -22,8 +23,7 @@ namespace ReviewScrapper
 
                 //do work here
                 var worker = serviceProvider.GetService<IWorkerService>();
-                var reviews = worker.Run(_configuration["API:Address"].ToString().ToString(),
-                    Convert.ToInt32(_configuration["API:Pages"].ToString())).Result;
+                var reviews = worker.Run(Convert.ToInt32(_configuration["Pages"].ToString()));
 
                 if (reviews != null)
                 {
@@ -36,7 +36,7 @@ namespace ReviewScrapper
                         $"TotalScore: {t.TotalScore}\n\n"));
                 }
                 else
-                    Console.WriteLine("API returned null.");
+                    Console.WriteLine("Scrapping returned null.");
 
                 Console.ReadLine();
             }
@@ -67,5 +67,7 @@ namespace ReviewScrapper
                 .AddSingleton(_configuration)
                 .BuildServiceProvider();
         }
+
+
     }
 }
